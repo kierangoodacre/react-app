@@ -1,4 +1,4 @@
-<head>
+ <head>
   <script src="https://fb.me/react-0.14.7.js"></script>
   <script src="https://fb.me/react-dom-0.14.7.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
@@ -13,62 +13,5 @@
   </div>
 </body>
 <script type="text/jsx">
-  //define react component class
-  var Badge = React.createClass({
-    render:function(){
-      return <button className="btn btn-primary" type="button">
-        {this.props.title} <span className="badge">{this.props.number}</span>
-      </button>
-    }
-  });
-
-  var Thumbnail = React.createClass({
-    render: function(){
-      return <div className="thumbnail">
-        <img src={this.props.imgUrl} />
-        <div className="caption">
-          <h3>{this.props.header}</h3>
-          <p>{this.props.description}</p>
-          <p>
-            <Badge title={this.props.title} number={this.props.number} />
-          </p>
-        </div>
-      </div>
-    }
-  });
-
-  var ThumbnailList = React.createClass({
-    render: function(){
-      var list = this.props.thumbnailData.map(function(thumbnailProps){
-        return <Thumbnail {...thumbnailProps} />
-      });
-
-      return <div>
-        {list}
-      </div>
-    }
-  });
-
-  var options = {
-    thumbnailData: [{
-      title: "See Tutorials",
-      number: 32,
-      header: "Learn React",
-      description: "React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages",
-      imgUrl: 'http://formatjs.io/img/react.svg'
-    },{
-      title: "See Tutorials",
-      number: 25,
-      header: "Learn Gulp",
-      description: "Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow ",
-      imgUrl: 'https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png'
-    },]
-  };
-
-
-
-  var element = React.createElement(ThumbnailList, options);
-
-  ReactDOM.render(element, document.querySelector('.target'));
 
 </script>

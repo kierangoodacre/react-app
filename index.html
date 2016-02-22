@@ -5,7 +5,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-
+  <div class="container">
+    <div class="row">
+      <div class="cold-sm-5 target">
+      </div>
+    </div>
+  </div>
 </body>
 <script type="text/jsx">
   //define react component class
@@ -17,18 +22,53 @@
     }
   });
 
+  var Thumbnail = React.createClass({
+    render: function(){
+      return <div className="thumbnail">
+        <img src={this.props.imgUrl} />
+        <div className="caption">
+          <h3>{this.props.header}</h3>
+          <p>{this.props.description}</p>
+          <p>
+            <Badge title={this.props.title} number={this.props.number} />
+          </p>
+        </div>
+      </div>
+    }
+  });
+
+  var ThumbnailList = React.createClass({
+    render: function(){
+      var list = this.props.thumbnailData.map(function(thumbnailProps){
+        return <Thumbnail {...thumbnailProps} />
+      });
+
+      return <div>
+        {list}
+      </div>
+    }
+  });
+
   var options = {
-    title: "Sent",
-    number: 12
+    thumbnailData: [{
+      title: "See Tutorials",
+      number: 32,
+      header: "Learn React",
+      description: "React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages",
+      imgUrl: 'http://formatjs.io/img/react.svg'
+    },{
+      title: "See Tutorials",
+      number: 25,
+      header: "Learn Gulp",
+      description: "Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow ",
+      imgUrl: 'https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png'
+    },]
   };
 
-  //ask react to render this class
 
-  var element = React.createElement(Badge, options);
 
-  //when we ask react to render this class, we will tell it
-  //where to place it in the DOM
+  var element = React.createElement(ThumbnailList, options);
 
-  ReactDOM.render(element, document.body);
+  ReactDOM.render(element, document.querySelector('.target'));
 
 </script>

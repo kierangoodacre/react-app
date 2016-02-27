@@ -1,25 +1,18 @@
 var React = require('react');
-var ThumbnailList = require('./thumbnail-list');
+var Dropdown = require('./dropdown');
 // var ReactDOM = require('ReactDOM');
 
 var options = {
-  thumbnailData: [{
-    title: "See Tutorials",
-    number: 32,
-    header: "Learn React",
-    description: "React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages React is a fantastic way to build fast dynamic web pages",
-    imgUrl: 'http://formatjs.io/img/react.svg'
-  },{
-    title: "See Tutorials",
-    number: 25,
-    header: "Learn Gulp",
-    description: "Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow Gulp will speed up your dev workflow ",
-    imgUrl: 'https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png'
-  },]
+  title: 'Choose a dessert',
+  items: [
+    'Apple pie',
+    'Peach Cobbler',
+    'Custard Cream'
+  ]
 };
 
 
 
-var element = React.createElement(ThumbnailList, options);
+var element = React.createElement(Dropdown, options);
 
 ReactDOM.render(element, document.querySelector('.target'));

@@ -12,7 +12,7 @@ gulp.task('default', function(){
     extensions: ['.jsx'],
     debug: true,
     cache: {},
-    packageCache: {};
+    packageCache: {},
     fullPaths: true
   }))
 
@@ -21,7 +21,7 @@ gulp.task('default', function(){
     return bundler
       .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserfy Error')) //if there is ever an error in the file logged to console so we can debug
-      .pipe(source(main.js)) //after bundler has ran put it on in single file main.js
+      .pipe(source('main.js')) //after bundler has ran put it on in single file main.js
       .pipe(gulp.dest('./')) //place file in current directory
   };
   build() //when run gulp it builds it
